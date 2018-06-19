@@ -1,0 +1,22 @@
+<!-- <div ng-controller="ScrumboardController"> 
+    Not needed now as using angular routing--> 
+
+    <div class="list" ng-repeat="list in data">
+
+        <h3>{{list.name}}</h3>
+        
+        <ul>
+            <li ng-repeat="card in list.cards">
+                <scrumboard-card>
+                </scrumboard-card>
+            </li>
+        </ul>
+        
+        <div class="flex">
+            <input type="text" ng-model="new_title" />
+            <button type="button" ng-click="add(list, new_title)">+</button>
+        </div>
+
+    </div>
+
+<!--</div>-->

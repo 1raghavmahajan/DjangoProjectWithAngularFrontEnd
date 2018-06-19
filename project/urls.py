@@ -18,8 +18,11 @@ from django.urls import path, include
 from django.conf.urls import url
 from django.views.generic import TemplateView
 
+from django.views.decorators.csrf import ensure_csrf_cookie
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^$', TemplateView.as_view(template_name = "scrumboard/home.html")),
-    path('scrumboard/', include('scrumboard.urls'))
+    url(r'^$', ensure_csrf_cookie(TemplateView.as_view(template_name = "home.html"))),
+    path('scrumboard/', include('scrumboard.urls')),
+    path('auth_api/', include('auth_api.urls'))
 ]
